@@ -1,4 +1,3 @@
-  def triggerUser = commonFunctions.getBuildUser()
   def environment = ""
   def gitCommitHash = ""
   def domain_name = ""
