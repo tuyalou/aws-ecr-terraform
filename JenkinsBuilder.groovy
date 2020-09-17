@@ -171,7 +171,7 @@
               // Keeping trying to login to docker private registry delay is 3 seconds 
               withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: "aws-access-${environment}", usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                 sh """#!/bin/bash -e
-                until docker login -u ${env.AWS_ACCESS_KEY_ID} -p ${env.AWS_SECRET_ACCESS_KEY} -n none https://${aws_account_id}.dkr.ecr.${aws_region}.amazonaws.com
+                until docker login -u ${env.AWS_ACCESS_KEY_ID} -p ${env.AWS_SECRET_ACCESS_KEY} -n none https://${param.aws_account_id}.dkr.ecr.${params.aws_region}.amazonaws.com
                 do
                   echo "Trying to login to docker private system"
                   sleep 3
@@ -180,7 +180,7 @@
               }
 
               // Push image to the Nexus with new release
-              docker.withRegistry("https://${aws_account_id}.dkr.ecr.${aws_region}.amazonaws.com, 'aws-access-${environment}') {
+              docker.withRegistry("https://${aws_account_id}.dkr.ecr.${params.aws_region}.amazonaws.com, 'aws-access-${params.environment}') {
                   dockerImage.push("${gitCommitHash}") 
 
                   if (params.PUSH_LATEST) {
