@@ -180,7 +180,7 @@
               }
 
               // Push image to the Nexus with new release
-              docker.withRegistry("https://${aws_account_id}.dkr.ecr.${params.aws_region}.amazonaws.com, 'aws-access-${params.environment}') {
+              docker.withRegistry("https://${aws_account_id}.dkr.ecr.${params.aws_region}.amazonaws.com", 'aws-access-${params.environment}') {
                   dockerImage.push("${gitCommitHash}") 
 
                   if (params.PUSH_LATEST) {
