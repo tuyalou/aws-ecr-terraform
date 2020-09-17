@@ -1,10 +1,3 @@
-#!/usr/bin/env groovy
-package com.lib
-import groovy.json.JsonSlurper
-import hudson.FilePath
-
-
-def runPipeline() {
   def commonFunctions = new CommonFunction()
   def triggerUser = commonFunctions.getBuildUser()
   def environment = ""
