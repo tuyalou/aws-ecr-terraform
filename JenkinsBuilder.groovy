@@ -1,4 +1,9 @@
-  def commonFunctions = new CommonFunction()
+#!/usr/bin/env groovy
+import groovy.json.JsonSlurper
+import hudson.FilePath
+
+
+def runPipeline() {  def commonFunctions = new CommonFunction()
   def triggerUser = commonFunctions.getBuildUser()
   def environment = ""
   def gitCommitHash = ""
