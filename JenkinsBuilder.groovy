@@ -54,6 +54,7 @@
       parameters([
         booleanParam(defaultValue: false, description: 'Click this if you would like to deploy to latest', name: 'PUSH_LATEST'),
         choice(choices: ['us-west-2', 'us-west-1', 'us-east-2', 'us-east-1', 'eu-west-1'], description: 'Please select the region', name: 'aws_region'),
+        string(defaultValue: 'None', description: 'Please provide AWS accountID', name: 'aws_account_id', trim: true)
       ])
    ])
 
