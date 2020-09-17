@@ -1,9 +1,3 @@
-#!/usr/bin/env groovy
-import groovy.json.JsonSlurper
-import hudson.FilePath
-
-
-def runPipeline() {  def commonFunctions = new CommonFunction()
   def triggerUser = commonFunctions.getBuildUser()
   def environment = ""
   def gitCommitHash = ""
@@ -213,6 +207,5 @@ def runPipeline() {  def commonFunctions = new CommonFunction()
     println("ERROR Detected:")
     println(e.getMessage())
   }
-}
 
 return this
