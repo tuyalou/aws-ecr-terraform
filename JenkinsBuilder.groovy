@@ -200,9 +200,9 @@ def runPipeline() {
           stage("Clean up") {
 
             // Cleaning all docker image to keep the nodes clean 
-            sh "docker rmi --no-prune docker.${domain_name}/${repositoryName}:${gitCommitHash}"
+            sh "docker rmi --no-prune ${aws_account_id}.dkr.ecr.${aws_region}.amazonaws.com/${repositoryName}:${gitCommitHash}"
             if (params.PUSH_LATEST) {
-              sh "docker rmi --no-prune docker.${domain_name}/${repositoryName}:latest"
+              sh "docker rmi --no-prune ${aws_account_id}.dkr.ecr.${aws_region}.amazonaws.com/${repositoryName}:latest"
             }
           }
         } 
